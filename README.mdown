@@ -1,0 +1,69 @@
+cheshire3.github.com
+====================
+
+19th July 2012 (2012-07-19)
+
+Contents
+--------
+
+- Description
+- Authors
+- Bugs, Feature requests etc.
+- Licensing
+
+
+Description
+-----------
+
+This is the source code and data, for the website for Cheshire3.
+http://cheshire3.org
+http://cheshire3.github.com
+
+Cheshire3 is a fast XML search engine, written in Python for extensability 
+and using C libraries for speed. Cheshire3 is feature rich, including support 
+for XML namespaces, unicode, a distributable object oriented model and all 
+the features expected of a digital library system.
+
+
+Authors
+-------
+
+Cheshire3 Team at the University of Liverpool <http://www.liv.ac.uk>:
+
+* Robert Sanderson
+* **John Harrison** john.harrison@liv.ac.uk
+
+(Current maintainer in **bold**)
+
+
+Bugs, Feature requests etc.
+---------------------------
+
+Bug reports, feature requests etc. should be made using the GitHub issue 
+tracker:
+https://github.com/cheshire3/cheshire3.github.com/issues
+
+
+Licensing
+---------
+
+Copyright &copy; 2005-2012, the University of Liverpool.
+All rights reserved.
+
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB">
+<img alt="Creative Commons Licence" style="border-width:0"
+src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" />
+</a><br />
+<span xmlns:dct="http://purl.org/dc/terms/"
+href="http://purl.org/dc/dcmitype/Text"
+property="dct:title" rel="dct:type">cheshire3.github.com</span> and 
+<span xmlns:dct="http://purl.org/dc/terms/"
+href="http://purl.org/dc/dcmitype/Text"
+property="dct:title" rel="dct:type">cheshire3.org</span> by
+<span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">
+Cheshire3 Team at the University of Liverpool</span> is licensed under a 
+<a rel="license"
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB">
+Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+</p>
