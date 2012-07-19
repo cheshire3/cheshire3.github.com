@@ -3,6 +3,12 @@
     <head>
     	<title>Cheshire3 Download</title>
     	<link rel="stylesheet" type="text/css" href="/cheshire3.css"></link>
+        <!--[if lt IE 7]>
+            <link rel="stylesheet" type="text/css"  media="screen" href="/cheshire3-ie.css">
+        <![endif]-->
+        <!--[if gte IE 7]>
+            <link rel="stylesheet" type="text/css"  media="screen" href="/cheshire3-ie7.css">
+        <![endif]-->
     </head>
     <body>
 	<a name="top"></a>
@@ -15,8 +21,38 @@
 			</td>
 		</tr>
 	</table>
-	<!--#config errmsg="<div id="navbar"/>" -->
-	<!--#include virtual="/navbar.ssi" -->
+	
+    <div id="navbar">
+        <ul class="navmenu">
+            <li class="navtab"><a href="/" title="Home">Home</a></li>
+            <li class="navtab">
+                <a href="/download/" title="Download">Download</a>
+                <ul class="subnav">
+                        <li class="subtab"><a href="/download/index.html#latest">Download Cheshire3</a></li>
+                        <li class="subtab"><a href="/download/index.html#docs" title="Instructions for Installation and Use">Installation</a></li>
+                        <li class="subtab"><a href="/download/index.html#dbs" title="Example Database and Systems">Databases</a></li>
+                        <li class="subtab"><a href="/download/index.html#apps" title="Complete Cheshire3 Systems">Applications</a></li>
+                        <li class="subtab"><a href="/download/index.html#cvs" title="Download Cheshire3 using CVS / SVN">CVS / SVN</a></li>
+                        <li class="subtab"><a href="/download/index.html#archived" title="Older Releases of Cheshire3">Older Versions</a></li>
+                        <li class="subtab"><a href="/download/index.html#legal" title="Legal notices and disclaimers">Legal</a></li>
+                </ul>
+            </li>
+            <li class="navtab">
+                <a href="/docs/" title="Documentation">Documentation</a>
+                <ul class="subnav">
+                    <li class="subtab"><a href="/docs/install.html" title="Installation">Installation</a></li>
+                    <li class="subtab"><a href="/docs/build/" title="Building Databases">Building Databases</a></li>
+                    <li class="subtab"><a href="/docs/config/" title="Configuration Details">Configuration</a></li>
+                    <li class="subtab"><a href="/docs/script/script_search.html" title="Search and Display from the command line">Searching</a></li>
+                    <li class="subtab"><a href="/docs/script/script_apache.html" title="Building a Web Interface">Web-Interface</a></li> 
+                    <li class="subtab"><a href="/docs/troubleshooting.html" title="Troubleshooting section">Troubleshooting</a></li>
+                    <li class="subtab"><a href="/docs/objects/" title="Cheshire3 Object Model">Object Model</a></li>
+                    <li class="subtab"><a href="/docs/objects/api/" title="Application Programming Interface">API</a></li>
+                </ul>
+            </li>
+            <li class="navtab"><a href="/forum/" title="Discussion Forum">Forum</a></li>
+        </ul>
+    </div>
 		
 	<a name="latest"></a>
 	<div class="fieldset">
