@@ -1,0 +1,19 @@
+div#navbar {
+	margin-top: -1.3em;
+	min-height: 1px; /*hack to ensure bg colour inherited */
+}
+	
+ul.navmenu > li {
+	float:left;
+}
+
+ul.navmenu ul.subnav {
+	top: 1.2em;
+	left:-1px;
+	margin-left:0px;
+}
+
+.legend {
+	z-index: -1;
+	top: -1.4em;
+}

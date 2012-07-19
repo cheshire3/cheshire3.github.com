@@ -1,0 +1,8 @@
+# robots.txt file entries for Cheshire3 Apache Server
+User-agent: *
+Disallow: /services/   # SRU interface
+Disallow: /OAI/        # OAI interface
+Disallow: /ajax/       # ajax interface
+
+Disallow: /ead/search/
+Disallow: /~cheshire/cgi-bin/

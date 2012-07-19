@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <title>Cheshire3 Information Framework</title>
+        <link rel="stylesheet" type="text/css" href="/cheshire3.css"></link>
+    </head>
+    <body>
+    
+   		<table cellpadding="0" cellspacing="0" class="maintitle">
+            <tr height="75">
+				<td class="cheshirelogo">
+                    <img src="/gfx/c3_white.gif"/>
+				</td>
+				<td width="10">
+                    <img src="/gfx/slant_grey.gif"/>
+				</td>
+				<td align="center"> 
+                    <h1>About Cheshire3</h1>
+				</td>
+            </tr>
+		</table>
+    
+		<!--#config errmsg="<div id="navbar"/>" -->
+        <!--#include virtual="/navbar.ssi" -->
+		<div class="fieldset" id="about">
+  			<span class="legend">What is Cheshire3?</span>
+			<p>
+				<strong>Cheshire3</strong> is a fast open source XML search 
+				engine written in Python for extensability and using C 
+				libraries for speed.
+			</p>
+			<p>
+				If you're looking for an open source search software solution, 
+				then <strong>Cheshire3</strong> could be just what you need!
+			</p>
+		</div>
+
+		<div class="fieldset" id="capabilities">
+			<span class="legend">Capabilities</span>
+			<p>
+				Given a set of records, Cheshire3 can extract data into one 
+				or more indexes after processing with configurable workflows 
+				to add extra normalisation and processing.  Once the indexes 
+				have been built, it supports such operations as ranked search, 
+				faceted search, record retrieval, browse and on demand result 
+				re-ordering or sort.
+			</p>
+			<p>
+				A 'formats' plugin provides support for ingest of Document 
+				types other than XML (e.g. Office documents, PDFs etc.)
+				Plugins are also available to help carry out more advanced tasks:
+			</p>
+			<ul>
+				<li>Data mining</li>
+				<li><abbr title="Natural Language Processing">NLP</abbr> and Corpus Linguistics</li>
+				<li><abbr title="Resource Description Framework">RDF</abbr> based records</li>
+				<li><abbr title="Structured Query Language">SQL</abbr> based 
+				Relational Database Management System (RDBMS) Support</li>
+				<li>Parallel processing</li>
+			</ul>
+		</div>
+		
+		<div class="fieldset" id="features">
+			<span class="legend">Features</span>
+			<p>
+				<strong>Cheshire3</strong> is feature rich, including support for 
+				XML namespaces, unicode, a distributable object oriented model 
+				and all the features expected of a digital library system. 
+				It is Open Source, and standards are foremost, including 
+				<abbr title="Search/Retrieve Webservice">SRW</abbr>, 
+				<abbr title="Search/Retrieve via URL">SRU</abbr> and 
+				<abbr title="Contextual Query Language">CQL</abbr>, 
+				as well as Z39.50.
+			</p>
+		</div>
+			
+		<div class="fieldset" id="interfaces">
+			<span class="legend">Interfaces</span>
+			<p>
+				<strong>Cheshire3</strong> is highly modular and configurable, 
+				enabling very specific needs to be addressed with a minimum 
+				of effort. The API is stable and fully documented, allowing 
+				easy third party development of components, scripts and 
+				interfaces.
+			</p>
+			<p>
+				Using mod_python handlers, or WSGI scripts, any interface from 
+				an online shop front, to Z39.50 to 
+				<abbr title="Search/Retrieve via URL">SRU</abbr> to
+				<abbr title="Open Archives Initiative Protocol for Metedata Harvesting">OAI-PMH</abbr> 
+				can be provided (all included by default in the 'web' 
+				plugin.) The abstract protocolHandler allows integration 
+				into any environment that will support execution of Python 
+				code.
+			</p>
+		</div>
+				
+	</body>
+</html>

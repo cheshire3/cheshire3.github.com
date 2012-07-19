@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+    	<title>Cheshire3 Download</title>
+    	<link rel="stylesheet" type="text/css" href="/cheshire3.css"></link>
+    </head>
+    <body>
+	<a name="top"></a>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="maintitle">
+		<tr height="75">
+			<td class="cheshirelogo"><img src="/gfx/c3_white.gif" /></td>
+			<td width="10"><img src="/gfx/slant_grey.gif"/></td>
+			<td align="center">
+				<h2>Cheshire3 Download</h2>
+			</td>
+		</tr>
+	</table>
+	<!--#config errmsg="<div id="navbar"/>" -->
+	<!--#include virtual="/navbar.ssi" -->
+		
+	<a name="latest"></a>
+	<div class="fieldset">
+		<span class="legend">Downloading Cheshire3</span>
+		<p>Below are links to the source packages for the latest release of Cheshire3, and the install script.</p>
+		<table>
+		  <tr>
+		    <td><a href="latest/build.sh">build.sh</a></td>
+		    <td/>
+		    <td>Install script</td>
+		  </tr>
+		  <tr>
+		    <td><a href="latest/cheshire3-base.tgz">cheshire3-base.tgz</a></td>
+		    <td>[<a href="latest/cheshire3-base.tgz.md5">MD5</a>]</td>
+		    <td>Base install, required</td>
+		  </tr>
+		  <tr>
+		    <td><a href="latest/cheshire3-web.tgz">cheshire3-web.tgz</a></td>
+		    <td>[<a href="latest/cheshire3-web.tgz.md5">MD5</a>]</td>
+		    <td>For web, SRW, SRU, OAI-PMH, and Z39.50 front ends. Also allows ingest of document from providers of these interfaces.</td>
+		  </tr>
+		  <tr>
+		    <td><a href="latest/cheshire3-sql.tgz">cheshire3-sql.tgz</a></td>
+		    <td>[<a href="latest/cheshire3-sql.tgz.md5">MD5</a>]</td>
+		    <td>For relational database interaction (i.e. loading data from and storing objects in).</td>
+		  </tr>
+		  <tr>
+		    <td><!--a href="latest/cheshire3-datamining.tgz"-->cheshire3-datamining.tgz<!--/a--></td>
+		    <td/>
+		    <td>For Data Mining and related tasks [Being updated]</td>
+		  </tr>
+		  <tr>
+		    <td><!--a href="latest/cheshire3-textmining.tgz"-->cheshire3-textmining.tgz<!--/a--></td>
+		    <td/>
+		    <td>For NLP and related tasks [Being updated]</td>
+		  </tr>
+		  <tr>
+		    <td><a href="latest/cheshire3-grid.tgz">cheshire3-grid.tgz</a></td>
+		    <td>[<a href="latest/cheshire3-grid.tgz.md5">MD5</a>]</td>
+		    <td>For distributed processing tasks on computational grids, and interaction with data grids.</td>
+		  </tr>
+		  <tr>
+		    <td><a href="latest/cheshire3-formats.tgz">cheshire3-formats.tgz</a></td>
+		    <td>[<a href="latest/cheshire3-formats.tgz.md5">MD5</a>]</td>
+		    <td>For dealing with data in different file formats (MS Office, PDF etc.) <br/>
+		    	Includes file format identification and preParsers to transform them into XML.</td>
+		  </tr>
+		</table>
+		<a href="#top" title="Back to top of page">[top]</a>
+	</div>
+
+	<a name="docs"></a>
+  	<div class="fieldset">
+		<span class="legend">Installation</span>
+		<p>To install, download the packages that you want. Put them all in
+			the base directory where you want everything to be installed to, and run
+			build.sh.
+		</p>
+		<p>To build by hand, step through the instructions in
+			build.sh<!--, or look at the <a href="/docs/install.html">installation documentation</a>-->.
+		</p>
+		<a href="#top" title="Back to top of page">[top]</a>
+	</div>
+
+	<a name="dbs"></a>
+  	<div class="fieldset">
+		<span class="legend">Examples</span>
+		<p>Simple sample databases for you to experiment with, copy and adapt to your own requirements:</p>
+		<ul>
+			<li>db_dc.tgz (Being updated) (Simple Dublin Core database)</li>
+			<li>db_marc.tgz (Being updated)</li>
+			<li>db_pdf.tgz (Being updated)</li>
+		</ul>
+		<a href="#top" title="Back to top of page">[top]</a>
+	</div>
+        
+	<a name="apps"></a>
+	<div class="fieldset">
+		<span class="legend">Applications</span>
+		<ul>
+			<li><a href="ead/">Cheshire3 for Archives</a> - a complete system for searching and delivering EAD documents via the web. Featuring:
+				<ul>
+					<li>Full document and component indexing to item level</li>
+					<li>Customisable search and display web-interface</li>
+                                        <li>Faceted result browsing</li>
+					<li>Subject clustering  / Entry Level Vocabulary</li>
+					<li>SRU, OAI-PMH and Z39.50 APIs</li>					
+					<li>Online administration interface
+					    <ul>
+						<li>add, delete records</li>
+						<li>rebuild, reindex database</li>
+						<li>manage users allowed to perform administrative tasks</li>
+					    </ul>
+					</li>
+					<li>Online Cataloguing
+					    <ul>
+						<li>Create new files</li>
+						<li>Import existing EAD files for editing</li>
+						<li>Export created/edited records for immediate inclusion in the database</li>
+					    </ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<a href="#top" title="Back to top of page">[top]</a>
+	</div>
+
+        <a name="cvs"></a>
+        <div class="fieldset">
+            <span class="legend">Downloading Cheshire3 from CVS / SVN</span>
+            <p>Our CVS/SVN server is:</p>
+            <blockquote>
+                <del>:pserver:cvs.cheshire3.org:/cvsroot/cheshire3<br/></del>
+                <a href="http://cvs.cheshire3.org/repos/">http://cvs.cheshire3.org/repos</a>
+            </blockquote>
+            <p>The <a href="http://cvs.cheshire3.org/repos/cheshire3/">'cheshire3' folder</a> should have the latest updates to the source code, and basic object configurations, but please be aware these may not be stable.</p>
+            <p>There is also bleeding edge code, and configs for a growing number of extension modules, sample databases and applications within the <a href="http://cvs.cheshire3.org/repos/contrib">'contrib' folder</a>.</p>
+            <p>If you are interested in contributing bug fixes, extensions, or applications via CVS/SVN, please make contact via the <a href="http://www.cheshire3.org/forum">Cheshire3 discussion forum</a>.</p>
+        </div>
+
+	<a name="archived"></a>
+	<div class="fieldset">
+		<span class="legend">Older Versions</span>
+		<ul>
+		  <li><a href="0.9.10/">0.9.10</a></li>
+		  <li><a href="0.9.9/">0.9.9</a></li>
+		  <li><a href="0.9.4/">0.9.4</a></li>
+		  <li><a href="0.9.3/">0.9.3</a></li>
+		  <li><a href="0.9.2/">0.9.2</a></li>
+		  <li><a href="0.9.1/">0.9.1</a></li>
+		</ul>
+		<a href="#top" title="Back to top of page">[top]</a>
+	</div>
+	<a name="legal"></a>
+  	<div class="fieldset">
+	  <span class="legend">Legal</span>
+	  <p>All software and scripts are provided without any expressed or implied warranty, and with no guarantee of fitness for any purpose.
+	  	It is downloaded, installed, and used entirely at the user's own risk.</p>
+	  	<a href="#top" title="Back to top of page">[top]</a>
+  	</div>
+    
+    </body>
+</html>
