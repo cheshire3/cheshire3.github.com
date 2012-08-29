@@ -53,10 +53,29 @@
             <li class="navtab"><a href="/forum/" title="Discussion Forum">Forum</a></li>
         </ul>
     </div>
-		
-	<a name="latest"></a>
+    
+    <a name="latest"></a>
+    <div class="fieldset">
+        <span class="legend">Latest Version</span>
+        <p>The latest stable version of the Cheshire3 Python package is available from PyPi - the Python
+Package Index:<br/>
+<a href="http://pypi.python.org/pypi/cheshire3/">http://pypi.python.org/pypi/cheshire3/</a></p>
+        <p>Bleeding edge source code is under version control and available from the
+        <a href="http://github.com/cheshire3/cheshire3">Cheshire3 GitHub repository</a>:<br/>
+        <a href="http://github.com/cheshire3/cheshire3">http://github.com/cheshire3/cheshire3</a></p>
+        
+        <a name="cvs"></a>
+        <p>Previously, source code was available from our own Subversion server. The SVN
+        repository is being kept alive for the time being as read-only, and best
+        efforts will be made to keep it up-to-date with the master (i.e.
+        stable/production) branch from the Cheshire3 Git repository. It is available
+        at:<br/>
+        <a href="http://svn.cheshire3.org/repos/cheshire3">http://svn.cheshire3.org/repos/cheshire3</a></p>
+    </div>
+
+	<a name="bundles"></a>
 	<div class="fieldset">
-		<span class="legend">Downloading Cheshire3</span>
+		<span class="legend">Downloading Cheshire3 Bundles</span>
 		<p>Below are links to the source packages for the latest release of Cheshire3, and the install script.</p>
 		<table>
 		  <tr>
@@ -65,38 +84,38 @@
 		    <td>Install script</td>
 		  </tr>
 		  <tr>
-		    <td><a href="latest/cheshire3-base.tgz">cheshire3-base.tgz</a></td>
-		    <td>[<a href="latest/cheshire3-base.tgz.md5">MD5</a>]</td>
+		    <td><a href="http://download.cheshire3.org/latest/cheshire3-base.tgz">cheshire3-base.tgz</a></td>
+		    <td>[<a href="http://download.cheshire3.org/latest/cheshire3-base.tgz.md5">MD5</a>]</td>
 		    <td>Base install, required</td>
 		  </tr>
 		  <tr>
-		    <td><a href="latest/cheshire3-web.tgz">cheshire3-web.tgz</a></td>
-		    <td>[<a href="latest/cheshire3-web.tgz.md5">MD5</a>]</td>
+		    <td><a href="http://download.cheshire3.org/latest/cheshire3-web.tgz">cheshire3-web.tgz</a></td>
+		    <td>[<a href="http://download.cheshire3.org/latest/cheshire3-web.tgz.md5">MD5</a>]</td>
 		    <td>For web, SRW, SRU, OAI-PMH, and Z39.50 front ends. Also allows ingest of document from providers of these interfaces.</td>
 		  </tr>
 		  <tr>
-		    <td><a href="latest/cheshire3-sql.tgz">cheshire3-sql.tgz</a></td>
-		    <td>[<a href="latest/cheshire3-sql.tgz.md5">MD5</a>]</td>
+		    <td><a href="http://download.cheshire3.org/latest/cheshire3-sql.tgz">cheshire3-sql.tgz</a></td>
+		    <td>[<a href="http://download.cheshire3.org/latest/cheshire3-sql.tgz.md5">MD5</a>]</td>
 		    <td>For relational database interaction (i.e. loading data from and storing objects in).</td>
 		  </tr>
 		  <tr>
-		    <td><!--a href="latest/cheshire3-datamining.tgz"-->cheshire3-datamining.tgz<!--/a--></td>
+		    <td><!--a href="http://download.cheshire3.org/latest/cheshire3-datamining.tgz"-->cheshire3-datamining.tgz<!--/a--></td>
 		    <td/>
 		    <td>For Data Mining and related tasks [Being updated]</td>
 		  </tr>
 		  <tr>
-		    <td><!--a href="latest/cheshire3-textmining.tgz"-->cheshire3-textmining.tgz<!--/a--></td>
+		    <td><!--a href="http://download.cheshire3.org/latest/cheshire3-textmining.tgz"-->cheshire3-textmining.tgz<!--/a--></td>
 		    <td/>
 		    <td>For NLP and related tasks [Being updated]</td>
 		  </tr>
 		  <tr>
-		    <td><a href="latest/cheshire3-grid.tgz">cheshire3-grid.tgz</a></td>
-		    <td>[<a href="latest/cheshire3-grid.tgz.md5">MD5</a>]</td>
+		    <td><a href="http://download.cheshire3.org/latest/cheshire3-grid.tgz">cheshire3-grid.tgz</a></td>
+		    <td>[<a href="http://download.cheshire3.org/latest/cheshire3-grid.tgz.md5">MD5</a>]</td>
 		    <td>For distributed processing tasks on computational grids, and interaction with data grids.</td>
 		  </tr>
 		  <tr>
-		    <td><a href="latest/cheshire3-formats.tgz">cheshire3-formats.tgz</a></td>
-		    <td>[<a href="latest/cheshire3-formats.tgz.md5">MD5</a>]</td>
+		    <td><a href="http://download.cheshire3.org/latest/cheshire3-formats.tgz">cheshire3-formats.tgz</a></td>
+		    <td>[<a href="http://download.cheshire3.org/latest/cheshire3-formats.tgz.md5">MD5</a>]</td>
 		    <td>For dealing with data in different file formats (MS Office, PDF etc.) <br/>
 		    	Includes file format identification and preParsers to transform them into XML.</td>
 		  </tr>
@@ -133,7 +152,7 @@
 	<div class="fieldset">
 		<span class="legend">Applications</span>
 		<ul>
-			<li><a href="ead/">Cheshire3 for Archives</a> - a complete system for searching and delivering EAD documents via the web. Featuring:
+			<li><a href="http://download.cheshire3.org/ead/">Cheshire3 for Archives</a> - a complete system for searching and delivering EAD documents via the web. Featuring:
 				<ul>
 					<li>Full document and component indexing to item level</li>
 					<li>Customisable search and display web-interface</li>
@@ -159,19 +178,6 @@
 		</ul>
 		<a href="#top" title="Back to top of page">[top]</a>
 	</div>
-
-        <a name="cvs"></a>
-        <div class="fieldset">
-            <span class="legend">Downloading Cheshire3 from CVS / SVN</span>
-            <p>Our CVS/SVN server is:</p>
-            <blockquote>
-                <del>:pserver:cvs.cheshire3.org:/cvsroot/cheshire3<br/></del>
-                <a href="http://cvs.cheshire3.org/repos/">http://cvs.cheshire3.org/repos</a>
-            </blockquote>
-            <p>The <a href="http://cvs.cheshire3.org/repos/cheshire3/">'cheshire3' folder</a> should have the latest updates to the source code, and basic object configurations, but please be aware these may not be stable.</p>
-            <p>There is also bleeding edge code, and configs for a growing number of extension modules, sample databases and applications within the <a href="http://cvs.cheshire3.org/repos/contrib">'contrib' folder</a>.</p>
-            <p>If you are interested in contributing bug fixes, extensions, or applications via CVS/SVN, please make contact via the <a href="http://www.cheshire3.org/forum">Cheshire3 discussion forum</a>.</p>
-        </div>
 
 	<a name="archived"></a>
 	<div class="fieldset">
