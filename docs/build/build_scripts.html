@@ -35,146 +35,141 @@
         </div>
 
         <div class="fieldset">
-            <span class="legend">Python Environment (01-11)</span>
+            <span class="legend">Python Environment (1 - 5)</span>
             <pre>
-01 #!/home/cheshire/install/bin/python
-02
-03 import sys
-04 
-05 osp = sys.path
-06 sys.path = ["/home/cheshire/cheshire3/code"]
-07 sys.path.extend(osp)
-08
-09 from baseObjects import Session
-10 from server import SimpleServer
-11
-12
-
+import sys, os															#  1
+																		#  2
+from cheshire3.baseObjects import Session								#  3
+from cheshire3.internal import cheshire3Root							#  4
+from cheshire3.server import SimpleServer								#  5
+																		#  6
             </pre>
             <p>
                 The first thing to do in any script is to setup Python such that you can use the various Cheshire3 objects. 
                 This allows us to find the Cheshire3 code first, before any other similarly named modules that might be installed. 
-                Lines 9 and 10 import the two Cheshire3 classes that we use directly - Session, and SimpleServer.
+                Lines 3 and 4 import the two Cheshire3 classes that we use directly - Session, and SimpleServer.
             </p>
         </div>
 
         <div class="fieldset">
-            <span class="legend">Cheshire3 Environment (13-22)</span>
+            <span class="legend">Cheshire3 Environment (7 - 16)</span>
             <pre>
-13 # Build environment...
-14 session = Session()
-15 serv = SimpleServer(session, "../configs/serverConfig.xml")
-16 db = serv.get_object(session, 'db_tei')
-17 docFac = db.get_object(session, 'defaultDocumentFactory')
-18 docParser = db.get_object(session, 'TeiParser')
-19 recStore = db.get_object(session, 'TeiRecordStore')
-20 
-21 docFac.load(session, "tei_files.xml", cache=2, tagName='tei')
-22 
+# Build environment...													#  7
+session = Session()														#  8
+servConfig = os.path.join(cheshire3Root, 'configs', 'serverConfig.xml')	#  9
+serv = SimpleServer(session, servConfig)								# 10
+db = serv.get_object(session, 'db_tei')									# 11
+docFac = db.get_object(session, 'defaultDocumentFactory')				# 12
+docParser = db.get_object(session, 'TeiParser')							# 13
+recStore = db.get_object(session, 'TeiRecordStore')						# 14
+																		# 15
+
             </pre>
             <p>
                 Next we need to set up the Cheshire3 environment which has been configured. 
-                The server is built (line 15) by giving it the path to a configuration file.
+                The server is built (line 10) by giving it the path to a configuration file.
                 The database is retrieved from the server using its identifier. 
-                From there, the other objects needed, such as the documentFactory, parser, and recordStore (17-19) to be used are extracted by their identifier.
+                From there, the other objects needed, such as the documentFactory, parser, and recordStore (12-14) to be used are extracted by their identifier.
             </p>
+            <pre>
+# Load some data														# 16
+docFac.load(session, "tei_files.xml", cache=2, tagName='tei')			# 17
+																		# 18
+            </pre>
             <p>
                 In order to store and index records, we need to have them in a processable form. 
-                Line 21 loads a file named 'tei_files.xml' which contains a number of discreet XML documents.
+                Line 17 loads a file named 'tei_files.xml' which contains a number of discreet XML documents.
                 The 'cache' argument with value 2 tells the documentFactory to store all located documents in memory until they're needed.
                 The 'tagName' argument tells the documentFactory to look for documents contained within &lt;tei&gt; tags.
             </p>
         </div>
 
         <div class="fieldset">
-            <span class="legend">Load and Index (23-34)</span>
+            <span class="legend">Load and Index (19 - 29)</span>
             <pre>
-23 db.begin_indexing(session)
-24 recStore.begin_storing(session)
-25 for doc in docFac:
-26     try:
-27         rec = docParser.process_document(session, doc)
-28     except:
-29         print doc.get_raw(session)
-30         sys.exit()
-31
-32     id = recStore.create_record(session, rec)
-33     db.add_record(session, rec)
-34     db.index_record(session, rec)
+db.begin_indexing(session)												# 19
+recStore.begin_storing(session)											# 20
+for doc in docFac:														# 21
+    try:																# 22
+        rec = docParser.process_document(session, doc)					# 23
+    except:																# 24
+        print doc.get_raw(session)										# 25
+        sys.exit()														# 26
+    id = recStore.create_record(session, rec)							# 27
+    db.add_record(session, rec)											# 28
+    db.index_record(session, rec)										# 29
+    																	# 30
 
             </pre>
             <p>
-                First (line 23) we need to tell the database that we're going to be indexing a lot of information. 
-                This lets the system handle all of the loading in one go at the end (line 36) and store only temporary information until then. 
-                Likewise line 24 tells the record store that it's going to be getting a lot of information coming in, and is closed at line 35.
+                First (line 19) we need to tell the database that we're going to be indexing some data. 
+                This lets the system handle all of the loading in one go at the end (line 33) and store only temporary information until then. 
+                Likewise line 20 tells the record store that it's going to be getting some data coming in, and is closed at line 31.
             </p>
             <p>
-                Then we step through each document in the documentFactory (25). 
-                Parsing (27) the record from the raw XML should always happen in a try: (27) block so that if the XML isn't well formed, you can do something sensible with it. 
-                The 'sensible' thing in this case is to print it to the screen and then exit the script (29-30)
+                Then we step through each document in the loaded documentFactory (21). 
+                Parsing (23) the record from the raw XML should always happen in a try: (22) block so that if the XML isn't well formed, you can do something sensible with it. 
+                The 'sensible' thing in this case is to print it to the screen and then exit the script (25 - 26)
             </p>
             <p>
-                Once we have a record, we need to store it in the recordStore (line 32). 
-                When we do this, the identifier assigned to the record by the recordStore is returned - we can assign this to a variable, and use it later if necessary. 
-                Then we add it to the database (33) [recall that records may be in more than one database] and then index it (34).
+                Once we have a record, we need to store it in the recordStore (line 27). 
+                When we do this, the identifier assigned to the record by the recordStore is returned - we can assign this to a variable, and use it later if necessary.
+                Then we add it to the database (28) [recall that records may be in more than one database] and then index it (29).
             </p>
         </div>
 
         <div class="fieldset">
-            <span class="legend">Cleanup (35-37)</span>
+            <span class="legend">Committing to persistent storage (30 - 32)</span>
             <pre>
-35 recStore.commit_storing(session)
-36 db.commit_metadata(session)
-37 db.commit_indexing(session)
+recStore.commit_storing(session)										# 31
+db.commit_metadata(session)												# 32
+db.commit_indexing(session)												# 33
 
             </pre>
             <p>
-                Because we're not going to add any more records, we can close the recordStore (line 35). 
-                This ensures that any records are flushed to disk, rather than being kept in memory. 
-                We also need to commit the metadata about the database (such as the newly added records) to disk and then finally we commit the indexing (line 37).
+                Because we're not going to add any more records, we can close the recordStore (line 31), 
+       			ensuring that any records are flushed to disk, rather than being kept in memory. 
+                We also need to commit the metadata (32) about the database
+                (such as the newly added records) to disk and then finally we commit the indexing (line 33).
             </p>
         </div>
 
         <div class="fieldset">
             <span class="legend">Complete Example</span>
             <pre>
-#!/home/cheshire/install/bin/python
-
-import sys
-
-osp = sys.path
-sys.path = ["/home/cheshire/cheshire3/code"]
-sys.path.extend(osp)
-
-from baseObjects import Session
-from server import SimpleServer
-
-
-# Build environment...
-session = Session()
-serv = SimpleServer(session, "../configs/serverConfig.xml")
-db = serv.get_object(session, 'db_tei')
-docFac = db.get_object(session, 'defaultDocumentFactory')
-docParser = db.get_object(session, 'TeiParser')
-recStore = db.get_object(session, 'TeiRecordStore')
- 
-docFac.load(session, "tei_files.xml", cache=2, tagName='tei')
-
-db.begin_indexing(session)
-recStore.begin_storing(session)
-for doc in docFac:
-    try:
-        rec = docParser.process_document(session, doc)
-    except:
-        print doc.get_raw(session)
-        sys.exit()
-
-    id = recStore.create_record(session, rec)
-    db.add_record(session, rec)
-    db.index_record(session, rec)
-recStore.commit_storing(session)
-db.commit_metadata(session)
-db.commit_indexing(session)
+import sys, os															#  1
+																		#  2
+from cheshire3.baseObjects import Session								#  3
+from cheshire3.internal import cheshire3Root							#  4
+from cheshire3.server import SimpleServer								#  5
+																		#  6
+# Build environment...													#  7
+session = Session()														#  8
+servConfig = os.path.join(cheshire3Root, 'configs', 'serverConfig.xml')	#  9
+serv = SimpleServer(session, servConfig)								# 10
+db = serv.get_object(session, 'db_tei')									# 11
+docFac = db.get_object(session, 'defaultDocumentFactory')				# 12
+docParser = db.get_object(session, 'TeiParser')							# 13
+recStore = db.get_object(session, 'TeiRecordStore')						# 14
+																		# 15
+# Load some data														# 16
+docFac.load(session, "tei_files.xml", cache=2, tagName='tei')			# 17
+																		# 18
+db.begin_indexing(session)												# 19
+recStore.begin_storing(session)											# 20
+for doc in docFac:														# 21
+    try:																# 22
+        rec = docParser.process_document(session, doc)					# 23
+    except:																# 24
+        print doc.get_raw(session)										# 25
+        sys.exit()														# 26
+    id = recStore.create_record(session, rec)							# 27
+    db.add_record(session, rec)											# 28
+    db.index_record(session, rec)										# 29
+    																	# 30
+recStore.commit_storing(session)										# 31
+db.commit_metadata(session)												# 32
+db.commit_indexing(session)												# 33
 
             </pre>
         </div>
