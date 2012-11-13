@@ -37,12 +37,12 @@
         <div class="fieldset">
             <span class="legend">Python Environment (1 - 5)</span>
             <pre>
-import sys, os															#  1
-																		#  2
-from cheshire3.baseObjects import Session								#  3
-from cheshire3.internal import cheshire3Root							#  4
-from cheshire3.server import SimpleServer								#  5
-																		#  6
+import sys, os                                                          #  1
+                                                                        #  2
+from cheshire3.baseObjects import Session                               #  3
+from cheshire3.internal import cheshire3Root                            #  4
+from cheshire3.server import SimpleServer                               #  5
+                                                                        #  6
             </pre>
             <p>
                 The first thing to do in any script is to setup Python such that you can use the various Cheshire3 objects. 
@@ -54,15 +54,15 @@ from cheshire3.server import SimpleServer								#  5
         <div class="fieldset">
             <span class="legend">Cheshire3 Environment (7 - 16)</span>
             <pre>
-# Build environment...													#  7
-session = Session()														#  8
-servConfig = os.path.join(cheshire3Root, 'configs', 'serverConfig.xml')	#  9
-serv = SimpleServer(session, servConfig)								# 10
-db = serv.get_object(session, 'db_tei')									# 11
-docFac = db.get_object(session, 'defaultDocumentFactory')				# 12
-docParser = db.get_object(session, 'TeiParser')							# 13
-recStore = db.get_object(session, 'TeiRecordStore')						# 14
-																		# 15
+# Build environment...                                                  #  7
+session = Session()                                                     #  8
+servConfig = os.path.join(cheshire3Root, 'configs', 'serverConfig.xml') #  9
+serv = SimpleServer(session, servConfig)                                # 10
+db = serv.get_object(session, 'db_tei')                                 # 11
+docFac = db.get_object(session, 'defaultDocumentFactory')               # 12
+docParser = db.get_object(session, 'TeiParser')                         # 13
+recStore = db.get_object(session, 'TeiRecordStore')                     # 14
+                                                                        # 15
 
             </pre>
             <p>
@@ -72,9 +72,9 @@ recStore = db.get_object(session, 'TeiRecordStore')						# 14
                 From there, the other objects needed, such as the documentFactory, parser, and recordStore (12-14) to be used are extracted by their identifier.
             </p>
             <pre>
-# Load some data														# 16
-docFac.load(session, "tei_files.xml", cache=2, tagName='tei')			# 17
-																		# 18
+# Load some data                                                        # 16
+docFac.load(session, "tei_files.xml", cache=2, tagName='tei')           # 17
+                                                                        # 18
             </pre>
             <p>
                 In order to store and index records, we need to have them in a processable form. 
@@ -87,18 +87,18 @@ docFac.load(session, "tei_files.xml", cache=2, tagName='tei')			# 17
         <div class="fieldset">
             <span class="legend">Load and Index (19 - 29)</span>
             <pre>
-db.begin_indexing(session)												# 19
-recStore.begin_storing(session)											# 20
-for doc in docFac:														# 21
-    try:																# 22
-        rec = docParser.process_document(session, doc)					# 23
-    except:																# 24
-        print doc.get_raw(session)										# 25
-        sys.exit()														# 26
-    id = recStore.create_record(session, rec)							# 27
-    db.add_record(session, rec)											# 28
-    db.index_record(session, rec)										# 29
-    																	# 30
+db.begin_indexing(session)                                              # 19
+recStore.begin_storing(session)                                         # 20
+for doc in docFac:                                                      # 21
+    try:                                                                # 22
+        rec = docParser.process_document(session, doc)                  # 23
+    except:                                                             # 24
+        print doc.get_raw(session)                                      # 25
+        sys.exit()                                                      # 26
+    id = recStore.create_record(session, rec)                           # 27
+    db.add_record(session, rec)                                         # 28
+    db.index_record(session, rec)                                       # 29
+                                                                        # 30
 
             </pre>
             <p>
@@ -121,9 +121,9 @@ for doc in docFac:														# 21
         <div class="fieldset">
             <span class="legend">Committing to persistent storage (30 - 32)</span>
             <pre>
-recStore.commit_storing(session)										# 31
-db.commit_metadata(session)												# 32
-db.commit_indexing(session)												# 33
+recStore.commit_storing(session)                                        # 31
+db.commit_metadata(session)                                             # 32
+db.commit_indexing(session)                                             # 33
 
             </pre>
             <p>
@@ -137,39 +137,39 @@ db.commit_indexing(session)												# 33
         <div class="fieldset">
             <span class="legend">Complete Example</span>
             <pre>
-import sys, os															#  1
-																		#  2
-from cheshire3.baseObjects import Session								#  3
-from cheshire3.internal import cheshire3Root							#  4
-from cheshire3.server import SimpleServer								#  5
-																		#  6
-# Build environment...													#  7
-session = Session()														#  8
-servConfig = os.path.join(cheshire3Root, 'configs', 'serverConfig.xml')	#  9
-serv = SimpleServer(session, servConfig)								# 10
-db = serv.get_object(session, 'db_tei')									# 11
-docFac = db.get_object(session, 'defaultDocumentFactory')				# 12
-docParser = db.get_object(session, 'TeiParser')							# 13
-recStore = db.get_object(session, 'TeiRecordStore')						# 14
-																		# 15
-# Load some data														# 16
-docFac.load(session, "tei_files.xml", cache=2, tagName='tei')			# 17
-																		# 18
-db.begin_indexing(session)												# 19
-recStore.begin_storing(session)											# 20
-for doc in docFac:														# 21
-    try:																# 22
-        rec = docParser.process_document(session, doc)					# 23
-    except:																# 24
-        print doc.get_raw(session)										# 25
-        sys.exit()														# 26
-    id = recStore.create_record(session, rec)							# 27
-    db.add_record(session, rec)											# 28
-    db.index_record(session, rec)										# 29
-    																	# 30
-recStore.commit_storing(session)										# 31
-db.commit_metadata(session)												# 32
-db.commit_indexing(session)												# 33
+import sys, os                                                          #  1
+                                                                        #  2
+from cheshire3.baseObjects import Session                               #  3
+from cheshire3.internal import cheshire3Root                            #  4
+from cheshire3.server import SimpleServer                               #  5
+                                                                        #  6
+# Build environment...                                                  #  7
+session = Session()                                                     #  8
+servConfig = os.path.join(cheshire3Root, 'configs', 'serverConfig.xml') #  9
+serv = SimpleServer(session, servConfig)                                # 10
+db = serv.get_object(session, 'db_tei')                                 # 11
+docFac = db.get_object(session, 'defaultDocumentFactory')               # 12
+docParser = db.get_object(session, 'TeiParser')                         # 13
+recStore = db.get_object(session, 'TeiRecordStore')                     # 14
+                                                                        # 15
+# Load some data                                                        # 16
+docFac.load(session, "tei_files.xml", cache=2, tagName='tei')           # 17
+                                                                        # 18
+db.begin_indexing(session)                                              # 19
+recStore.begin_storing(session)                                         # 20
+for doc in docFac:                                                      # 21
+    try:                                                                # 22
+        rec = docParser.process_document(session, doc)                  # 23
+    except:                                                             # 24
+        print doc.get_raw(session)                                      # 25
+        sys.exit()                                                      # 26
+    id = recStore.create_record(session, rec)                           # 27
+    db.add_record(session, rec)                                         # 28
+    db.index_record(session, rec)                                       # 29
+                                                                        # 30
+recStore.commit_storing(session)                                        # 31
+db.commit_metadata(session)                                             # 32
+db.commit_indexing(session)                                             # 33
 
             </pre>
         </div>
